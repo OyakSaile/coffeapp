@@ -61,7 +61,7 @@ export const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-
+  height: 25rem;
 
   span {
     cursor: pointer;
@@ -72,8 +72,6 @@ export const ImageContainer = styled.div`
     border: 0;
   }
 `;
-
-
 
 export const Container = styled.form`
   h2 {
@@ -96,6 +94,14 @@ export const Container = styled.form`
     }
     & + input {
       margin-top: 1rem;
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+    span {
+      color: var(--green);
+      font-weight: bold;
     }
   }
 
@@ -125,41 +131,21 @@ export const TransactionTypeContainer = styled.div`
   gap: 0.5rem;
 `;
 
-interface RadioBoxProps {
-  isActive: boolean;
-  activeColor: "green" | "red";
-}
-
-const colors = {
-  green: "#33CC95",
-  red: "#E52e54",
-};
-
-export const RadioBox = styled.button<RadioBoxProps>`
-  height: 4rem;
-  border: 1px solid #d7d7d7;
-  border-radius: 0.25rem;
-  background-color: ${(props) =>
-    props.isActive
-      ? transparentize(0.9, colors[props.activeColor])
-      : "transparent"};
+export const ButtonsModalContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: border-color 0.2s;
-  &:hover {
-    border-color: ${darken(0.1, "#d7d7d7")};
-  }
-  img {
-    width: 20px;
-    height: 20px;
-  }
+  justify-content: space-around;
 
-  span {
-    display: inline-block;
-    font-size: 1rem;
-    margin-left: 1rem;
-    color: var(--text-title);
+  button {
+    padding: 1.5rem;
+    background-color: var(--green);
+    color: #fff;
+    border: 0;
+    border-radius: 2rem;
+    margin: 2rem 0;
+    transition: filter 0.2s;
+    &:hover {
+      filter: brightness(0.9);
+    }
   }
 `;
-

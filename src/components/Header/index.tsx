@@ -1,4 +1,5 @@
 import { Container, ContentHeader } from "./styles";
+import { Link } from "react-router-dom";
 import coffeImg from "../../assets/coffe.svg";
 
 export function Header() {
@@ -6,9 +7,9 @@ export function Header() {
     <Container>
       <ContentHeader>
         <ul>
-          <li>
-            <a href="#">Menu</a>
-          </li>
+          <Link to="/">
+            <a href="#">Home</a>
+          </Link>
           <li>
             <a href="#">Rewards</a>
           </li>
@@ -21,10 +22,11 @@ export function Header() {
           <li>
             <a href="#">Delivery</a>
           </li>
-          <li>
-            <a href="#">Contact</a>
+          <li className="login">
+            <Link to="/login">Login</Link>
           </li>
         </ul>
+        
       </ContentHeader>
     </Container>
   );

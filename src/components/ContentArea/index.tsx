@@ -1,5 +1,6 @@
 import { Container, Content } from "./styles";
-import { CoffesInformations } from "../CoffesInformations/CoffesInformations";
+import { CoffesInformations } from "../CoffesInformations";
+import { AllProducts } from "../AllProducts";
 
 export function ContentArea() {
   return (
@@ -7,6 +8,7 @@ export function ContentArea() {
       <Content>
         <CoffesInformations />
       </Content>
+      <AllProducts />
     </Container>
   );
 }
