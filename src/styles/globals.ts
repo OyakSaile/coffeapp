@@ -41,6 +41,16 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  a{
+    text-decoration: none;
+    color: unset;
+    &:visited {
+      color: unset;
+    }
+
+   
+  }
+
   .react-modal-overlay {
       background-color: rgba(0,0,0,0.5);
       position: fixed;
