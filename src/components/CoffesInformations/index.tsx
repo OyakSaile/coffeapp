@@ -101,7 +101,7 @@ export function CoffesInformations() {
     if (conditionToAddOrRemove === "add" && quantity < estoque) {
       setQuantity(1 + quantity);
     }
-    if (conditionToAddOrRemove === "remove" && quantity > 0) {
+    if (quantity > 1 && conditionToAddOrRemove === "remove" && quantity > 0) {
       setQuantity(quantity - 1);
     }
   }
