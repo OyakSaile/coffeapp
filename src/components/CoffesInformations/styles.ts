@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
 import { darken, transparentize } from "polished";
+const fadeAnimation = keyframes`${fadeIn}`;
 
 export const Informations = styled.div`
   span {
@@ -17,6 +19,7 @@ export const Informations = styled.div`
     font-size: 4.5rem;
     color: var(--textLight);
   }
+  animation: 2s ${fadeAnimation};
 `;
 
 export const ButtonContainer = styled.div`

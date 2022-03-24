@@ -72,7 +72,9 @@ export function CoffesInformations() {
       userAdress,
     };
 
-    const messageToWhatsapp = `Olá, me chamo *${
+    const messageToWhatsapp = `ID do Pedido : ${Math.floor(
+      Math.random() * 10
+    )}\nOlá, me chamo *${
       user.userName
     }*, fiz um pedido na Loja *coffeAPP*\n\n*Café desejado:* ${coffeName}\n*Quantidade:* ${quantity}\n*Endereço:* ${
       user.userAdress
