@@ -63,7 +63,8 @@ export const generateServer = () => {
           price: 15.5,
           coffeName: "Product 2",
           coffeDescription:
-            "The most commonly used and widely available bean, Arabica accounts for 60 percent of the world's coffee production. Originating hundreds of years ago in the highlands of Ethiopia, and likely popularized in 7th Century Arabia (hence the name), it's actually quite delicate and difficult to grow — meaning its prevalence doesn't necessarily translate to commodity prices. Often found under gourmet labels, high-quality Arabica is smooth and complex, with a notable lack of bitterness.",
+            "As one of the most popular drinks Starbucks sells, the caramel macchiato enjoys a consistently great reputation. And it's spawned a generation of imitation products, too–walk through any grocery store and you'll see caramel macchiato flavored creamers and even coffee pods.",
+
           coffeImage: "https://i.ibb.co/fpJt103/pngwing-com-3.png",
           estoque: 10,
         },
@@ -87,6 +88,11 @@ export const generateServer = () => {
           estoque: 10,
         },
       ]);
+      // this.get("/api/reminders/:id", (schema, request) => {
+      //   let id = request.params.id;
+
+      //   return schema.reminders.find(id).destroy();
+      // });
     },
   });
 };

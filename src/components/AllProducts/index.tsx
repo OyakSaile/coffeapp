@@ -39,7 +39,7 @@ export function AllProducts() {
                 <h2>{toBrlNumber(price)}</h2>
 
                 <h1>{coffeName}</h1>
-                <Link to={`/products/${coffeName}`}>
+                <Link to={`/products/${id}`}>
                   <button>About</button>
                 </Link>
               </li>
