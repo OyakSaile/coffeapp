@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+
 import { api } from "../services/api";
 
-interface CoffesProps {
+interface Coffes {
   coffeDescription: string;
   coffeName: string;
   id: number;
@@ -10,27 +11,28 @@ interface CoffesProps {
   estoque: number;
 }
 
-export const AllProductsContext = createContext<CoffesProps[]>([]);
+interface ProductsDataContext {
+  coffes: Coffes[];
+}
 
 interface AllProductsProviderProps {
   children: ReactNode;
 }
 
+export const AllProductsContext = createContext<ProductsDataContext>({
+  coffes: [],
+});
+
 export function AllProductsProvider({ children }: AllProductsProviderProps) {
-  const [coffes, setCoffes] = useState<CoffesProps[]>([]);
-  const [loadingComponent, setIsLoadingComponent] = useState(true);
+  const [coffes, setCoffes] = useState<Coffes[]>([]);
 
   useEffect(() => {
     api.get("/coffes").then((response) => {
       setCoffes(response.data);
-
-      if (coffes) {
-        setIsLoadingComponent(false);
-      }
     });
   }, []);
   return (
-    <AllProductsContext.Provider value={coffes}>
+    <AllProductsContext.Provider value={{ coffes }}>
       {children}
     </AllProductsContext.Provider>
   );
