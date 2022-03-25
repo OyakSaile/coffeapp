@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+
+import { AllProductsContext } from "../../contexts/AllProductsContext";
 import { toBrlNumber } from "../../utils/number";
 import { ContainerAllProducts, Products } from "./styles";
-import { AllProductsContext } from "../../contexts/AllProductsContext";
+
 export function AllProducts() {
-  const coffes = useContext(AllProductsContext);
+  const { coffes } = useContext(AllProductsContext);
   return (
     <ContainerAllProducts>
       <Products>
@@ -13,7 +15,7 @@ export function AllProducts() {
           {coffes.map(({ coffeImage, coffeName, id, price }) => (
             <li key={id}>
               <div>
-                <img src={coffeImage} />
+                <img src={coffeImage} alt={coffeName} />
               </div>
               <h2>{toBrlNumber(price)}</h2>
 
