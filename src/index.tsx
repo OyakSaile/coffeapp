@@ -1,17 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { GlobalStyle } from "./styles/globals";
+
+import { App } from "./App";
+import { CreateNewOrderModal } from "./components/CreateNewOrder";
 import { AllProductsProvider } from "./contexts/AllProductsContext";
+import { CreateNewOrderProvider } from "./contexts/CreateNewOrderModal";
+import { GlobalStyle } from "./styles/globals";
 
 ReactDOM.render(
   <React.StrictMode>
     <AllProductsProvider>
-      <BrowserRouter>
-        <GlobalStyle />
-        <App />
-      </BrowserRouter>
+      <CreateNewOrderProvider>
+        <BrowserRouter>
+          <GlobalStyle />
+          <App />
+        </BrowserRouter>
+        <CreateNewOrderModal />
+      </CreateNewOrderProvider>
     </AllProductsProvider>
   </React.StrictMode>,
   document.getElementById("root")
