@@ -1,13 +1,10 @@
-import React from "react";
-import { ContentArea } from "./components/ContentArea";
-import { Header } from "./components/Header";
-import { GlobalStyle } from "./styles/globals";
 import Modal from "react-modal";
-import { generateServer } from "./utils/server";
 import { Route, Routes } from "react-router-dom";
+
 import { HomePage } from "./pages/homePage";
 import { LoginPage } from "./pages/loginPage";
 import { ProductDetail } from "./pages/productDetail";
+import { generateServer } from "./utils/server";
 
 Modal.setAppElement("#root");
 generateServer();
