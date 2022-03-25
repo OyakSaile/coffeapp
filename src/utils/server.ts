@@ -1,4 +1,5 @@
 import { createServer } from "miragejs";
+
 export const generateServer = () => {
   createServer({
     routes() {
@@ -88,11 +89,6 @@ export const generateServer = () => {
           estoque: 10,
         },
       ]);
-      // this.get("/api/reminders/:id", (schema, request) => {
-      //   let id = request.params.id;
-
-      //   return schema.reminders.find(id).destroy();
-      // });
     },
   });
 };
