@@ -1,20 +1,12 @@
-import React, { useEffect, useState, MouseEvent } from "react";
-import {
-  ButtonContainer,
-  Container,
-  ImageContainer,
-  Informations,
-  TransactionTypeContainer,
-  ButtonsModalContainer,
-} from "./styles";
-import arrowRightImg from "../../assets/arrowright.svg";
-import arrowLeftImg from "../../assets/arrowleft.svg";
-import { api } from "../../services/api";
-import Modal from "react-modal";
-import { FaMinus, FaPlus } from "react-icons/fa";
-import { toBrlNumber } from "../../utils/number";
+import React, { MouseEvent, useContext, useEffect, useState } from "react";
 
-import { usePalette } from "react-palette";
+import arrowLeftImg from "../../assets/arrowleft.svg";
+import arrowRightImg from "../../assets/arrowright.svg";
+import { CreateNewOrderContext } from "../../contexts/CreateNewOrderModal";
+import { api } from "../../services/api";
+import { toBrlNumber } from "../../utils/number";
+import { ButtonContainer, ButtonsModalContainer, ImageContainer, Informations, TransactionTypeContainer } from "./styles";
+
 // const { data, loading, error } = usePalette(IMAGE_URL)
 
 interface CoffesProps {
@@ -28,10 +20,7 @@ interface CoffesProps {
 
 export function CoffesInformations() {
   const [coffes, setCoffes] = useState<CoffesProps[]>([]);
-  const [modalUserInfoIsOpen, setModalUserInfoIsOpen] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [userTelephone, setUserTelephone] = useState("");
-  const [userAdress, setUserAdress] = useState("");
+
   const [indexCoffe, setIndexCoffe] = useState(0);
   const [loadingComponent, setIsLoadingComponent] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -54,13 +43,6 @@ export function CoffesInformations() {
     if (indexCoffe > 0 && prevOrNextIndex === "previous") {
       setIndexCoffe(indexCoffe - 1);
     }
-  }
-
-  function handleOpenModal() {
-    setModalUserInfoIsOpen(true);
-  }
-  function handleCloseModal() {
-    setModalUserInfoIsOpen(false);
   }
 
   function handleSendData() {
@@ -105,7 +87,13 @@ export function CoffesInformations() {
       setQuantity(quantity - 1);
     }
   }
-
+  const {
+    userAdress,
+    userName,
+    userTelephone,
+    handleCloseModal,
+    handleOpenModal,
+  } = useContext(CreateNewOrderContext);
   return (
     <>
       {!loadingComponent && (
@@ -151,64 +139,6 @@ export function CoffesInformations() {
               <img src={arrowRightImg} alt="" />
             </button>
           </ImageContainer>
-          <Modal
-            isOpen={modalUserInfoIsOpen}
-            onRequestClose={handleCloseModal}
-            overlayClassName="react-modal-overlay"
-            className="react-modal-content"
-          >
-            <Container onSubmit={handleSendData}>
-              <h2>
-                Pedido: <span>{coffes[indexCoffe].coffeName} </span>
-              </h2>
-              <input
-                type="text"
-                placeholder="Nome"
-                value={userName}
-                onChange={(e) => {
-                  setUserName(e.target.value);
-                }}
-              />
-              <input
-                type="text"
-                placeholder="Telefone"
-                value={userTelephone}
-                onChange={(e) => {
-                  setUserTelephone(e.target.value);
-                }}
-              />
-
-              <input
-                type="text"
-                placeholder="Endereço"
-                value={userAdress}
-                onChange={(e) => {
-                  setUserAdress(e.target.value);
-                }}
-              />
-
-              <ButtonsModalContainer>
-                <button
-                  onClick={(e) => {
-                    handleSetQuantity(e, "remove");
-                  }}
-                >
-                  <FaMinus />
-                </button>
-                <button
-                  onClick={(e) => {
-                    handleSetQuantity(e, "add");
-                  }}
-                >
-                  <FaPlus />
-                </button>
-              </ButtonsModalContainer>
-
-              <p>Total: {toBrlNumber(coffes[indexCoffe].price * quantity)}</p>
-              <p>Quantidade: {quantity}</p>
-              <button type="submit">Cadastrar</button>
-            </Container>
-          </Modal>
         </>
       )}
     </>
