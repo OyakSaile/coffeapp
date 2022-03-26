@@ -1,10 +1,14 @@
-import styled from "styled-components";
+import { fadeIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
+
+const animationFade = keyframes`${fadeIn}`;
 
 export const Container = styled.main`
   max-width: 1120px;
   margin: 0rem auto;
   padding: 2.5rem 1rem;
   height: 100%;
+  animation: 2s ${animationFade};
 `;
 
 export const Content = styled.div`
@@ -13,4 +17,3 @@ export const Content = styled.div`
   gap: 5rem;
   align-items: center;
 `;
-

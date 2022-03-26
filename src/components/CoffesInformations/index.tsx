@@ -5,7 +5,7 @@ import arrowRightImg from "../../assets/arrowright.svg";
 import { CreateNewOrderContext } from "../../contexts/CreateNewOrderModal";
 import { api } from "../../services/api";
 import { toBrlNumber } from "../../utils/number";
-import { ButtonContainer, ButtonsModalContainer, ImageContainer, Informations, TransactionTypeContainer } from "./styles";
+import { ButtonContainer, ImageContainer, Informations } from "./styles";
 
 // const { data, loading, error } = usePalette(IMAGE_URL)
 

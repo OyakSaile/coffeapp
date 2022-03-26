@@ -1,12 +1,17 @@
-import styled from "styled-components";
+import { fadeIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
 
+const animationFade = keyframes`${fadeIn}`;
 export const Container = styled.div`
-  min-height: 100vh;
+  max-width: 1120px;
+  margin: 0 auto;
   display: flex;
+  animation: 1s ${animationFade};
+  justify-content: center;
+  align-items: center;
 
   div {
     flex: 2;
-    background-color: #fff;
 
     img {
       height: 100%;
@@ -15,7 +20,6 @@ export const Container = styled.div`
   }
 
   div + div {
-    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +28,8 @@ export const Container = styled.div`
 `;
 
 export const FormContainer = styled.form`
+  padding: 2rem;
+  height: 100%;
   a {
     display: flex;
     align-items: center;
@@ -47,10 +53,10 @@ export const FormContainer = styled.form`
 `;
 
 export const FormData = styled.div`
-  background-color: #fff !important;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
   input {
     font-size: 1.2rem;
     width: 24rem;
@@ -74,6 +80,7 @@ export const FormData = styled.div`
   }
 
   button {
+    width: 100%;
     background-color: var(--green);
     color: #fff;
     font-size: 1.5rem;
@@ -101,7 +108,7 @@ export const SocialLogin = styled.div`
   button {
     background-color: transparent;
     border: 0.5px solid #c7c7c7;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 6px;
   }
 `;

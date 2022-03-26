@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 const fadeAnimation = keyframes`${fadeIn}`;
 
 export const Informations = styled.div`
+  animation: 1s ${fadeAnimation};
   span {
     font-size: 2.5rem;
     color: var(--green);
@@ -20,7 +21,6 @@ export const Informations = styled.div`
     font-size: 4.5rem;
     color: var(--textLight);
   }
-  animation: 2s ${fadeAnimation};
 `;
 
 export const ButtonContainer = styled.div`
@@ -75,13 +75,6 @@ export const ImageContainer = styled.div`
     background-color: transparent;
     border: 0;
   }
-`;
-
-export const TransactionTypeContainer = styled.div`
-  margin: 1rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
 `;
 
 export const ButtonsModalContainer = styled.div`

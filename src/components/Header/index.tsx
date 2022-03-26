@@ -1,6 +1,7 @@
-import { Container, ContentHeader } from "./styles";
 import { Link } from "react-router-dom";
+
 import coffeImg from "../../assets/coffe.svg";
+import { Container, ContentHeader } from "./styles";
 
 export function Header() {
   return (

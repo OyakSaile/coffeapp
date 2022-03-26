@@ -69,25 +69,6 @@ export const generateServer = () => {
           coffeImage: "https://i.ibb.co/fpJt103/pngwing-com-3.png",
           estoque: 10,
         },
-        {
-          id: 3,
-          price: 25.9,
-          coffeName: "Product 3",
-          coffeDescription:
-            "Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.140 calories, 12g sugar, 5g fat.",
-          coffeImage: "https://i.ibb.co/fpJt103/pngwing-com-3.png",
-          estoque: 10,
-        },
-
-        {
-          id: 4,
-          price: 25.9,
-          coffeName: "Product 4",
-          coffeDescription:
-            "Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.140 calories, 12g sugar, 5g fat.",
-          coffeImage: "https://i.ibb.co/fpJt103/pngwing-com-3.png",
-          estoque: 10,
-        },
       ]);
     },
   });
