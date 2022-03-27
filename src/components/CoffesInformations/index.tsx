@@ -74,19 +74,6 @@ export function CoffesInformations() {
     handleCloseModal();
   }
 
-  function handleSetQuantity(
-    event: MouseEvent,
-    conditionToAddOrRemove: string
-  ) {
-    const { estoque } = coffes[indexCoffe];
-    event.preventDefault();
-    if (conditionToAddOrRemove === "add" && quantity < estoque) {
-      setQuantity(1 + quantity);
-    }
-    if (quantity > 1 && conditionToAddOrRemove === "remove" && quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  }
   const {
     userAdress,
     userName,
