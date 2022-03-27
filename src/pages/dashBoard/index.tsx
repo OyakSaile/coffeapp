@@ -37,6 +37,16 @@ export function DashBoard() {
       setOrder(response.data.dashboardOrders);
     });
   }, []);
+
+  function deleteOrder(id: string) {
+    api.delete(`/dashboardOrders/${id}`);
+
+    api.get("/dashboardOrders").then((response) => {
+      // const filtro = response.data.filter((res: any) => res != null);
+      console.log(response);
+      setOrder(response.data.dashboardOrders);
+    });
+  }
   return (
     <Container>
       <SideBar />
@@ -75,7 +85,11 @@ export function DashBoard() {
                 </Icons>
 
                 <CheckButtons>
-                  <button>
+                  <button
+                    onClick={() => {
+                      deleteOrder(id?.toString() || "-1");
+                    }}
+                  >
                     <FiSlash className="recuseOrder" />
                   </button>
 

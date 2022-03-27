@@ -96,6 +96,10 @@ export function CreateNewOrderProvider({ children }: CreateNewOrderProps) {
     console.log(data);
     api.post("/dashboardOrders", { ...data, data });
   }
+
+  function deleteOrder(id: string) {
+    api.delete(`/dashboardOrders/${id}`);
+  }
   return (
     <CreateNewOrderContext.Provider
       value={{
