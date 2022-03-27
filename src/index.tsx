@@ -13,8 +13,8 @@ ReactDOM.render(
     <AllProductsProvider>
       <CreateNewOrderProvider>
         <BrowserRouter>
-          <GlobalStyle />
           <App />
+          <GlobalStyle />
         </BrowserRouter>
         <CreateNewOrderModal />
       </CreateNewOrderProvider>
