@@ -1,30 +1,93 @@
-import { Link } from "react-router-dom";
-import { Container, Menu, ContentDashBoardArea } from "./styles";
+import { useEffect, useState } from "react";
+import {
+  FiDollarSign,
+  FiHome,
+  FiPhone,
+  FiSlash,
+  FiCheckCircle,
+} from "react-icons/fi";
+
+import restaurantImage from "../../assets/dashboardEn.png";
+import { SideBar } from "../../components/SideBarMenu";
+import { api } from "../../services/api";
+import {
+  CardDashBoard,
+  CheckButtons,
+  Container,
+  ContentDashBoardArea,
+  Icons,
+  IconWithText,
+} from "./styles";
+
+interface orderProps {
+  product: string | undefined;
+  id: number | undefined;
+  total: number | undefined;
+  clientName: string;
+  adress: string;
+  telephone: string;
+}
 
 export function DashBoard() {
+  const [order, setOrder] = useState<orderProps[]>([]);
+  useEffect(() => {
+    api.get("/dashboardOrders").then((response) => {
+      // const filtro = response.data.filter((res: any) => res != null);
+      console.log(response);
+      setOrder(response.data.dashboardOrders);
+    });
+  }, []);
   return (
     <Container>
-      <Menu>
-        <ul>
-          <li>
-            <Link to="#">Menu</Link>
-          </li>
+      <SideBar />
 
-          <li>
-            <Link to="#">Menu</Link>
-          </li>
+      {order && (
+        <ContentDashBoardArea>
+          {order.map(
+            ({
+              adress,
+              id,
+              product,
+              telephone,
+              total,
+              clientName,
+            }: orderProps) => (
+              <CardDashBoard key={id}>
+                <p>Pedido #{id}</p>
 
-          <li>
-            <Link to="#">Menu</Link>
-          </li>
+                <img src={restaurantImage} alt="" />
+                <p>Cliente: {clientName}</p>
+                <p>Produto: {product}</p>
+                <Icons>
+                  <IconWithText>
+                    <FiPhone />
+                    <p>{telephone}</p>
+                  </IconWithText>
+                  <IconWithText>
+                    <FiHome />
+                    <p>{adress}</p>
+                  </IconWithText>
 
-          <li>
-            <Link to="#">Menu</Link>
-          </li>
-        </ul>
-      </Menu>
+                  <IconWithText>
+                    <FiDollarSign />
+                    <p>{total}</p>
+                  </IconWithText>
+                </Icons>
 
-      <ContentDashBoardArea></ContentDashBoardArea>
+                <CheckButtons>
+                  <button>
+                    <FiSlash className="recuseOrder" />
+                  </button>
+
+                  <button>
+                    <FiCheckCircle className="orderDone" />
+                  </button>
+                </CheckButtons>
+              </CardDashBoard>
+            )
+          )}
+        </ContentDashBoardArea>
+      )}
     </Container>
   );
 }
