@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Modal from "react-modal";
 
@@ -10,13 +10,15 @@ export function CreateNewOrderModal() {
     modalUserInfoIsOpen,
     handleCloseModal,
     userAdress,
-    handleOpenModal,
     setUserAdress,
     setUserName,
     setUserTelephone,
     userName,
     userTelephone,
+    sendOrderToDashBoard,
+    productDetail,
   } = useContext(CreateNewOrderContext);
+
   return (
     <Modal
       isOpen={modalUserInfoIsOpen}
@@ -24,9 +26,13 @@ export function CreateNewOrderModal() {
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
     >
-      <Container>
+      <Container
+        onSubmit={(e) => {
+          sendOrderToDashBoard(e);
+        }}
+      >
         <h2>
-          Pedido: <span></span>
+          Pedido: <span>{productDetail?.id}</span>
         </h2>
         <input
           type="text"
