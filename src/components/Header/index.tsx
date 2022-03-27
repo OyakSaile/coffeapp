@@ -8,7 +8,7 @@ export function Header() {
     <Container>
       <ContentHeader>
         <ul>
-          <Link to="/">Home</Link>
+          <Link to="/dashboard">Home</Link>
           <li>
             <a href="#">Rewards</a>
           </li>
@@ -19,7 +19,7 @@ export function Header() {
           </li>
 
           <li>
-            <a href="#">Delivery</a>
+            <Link to="/dashboard">DashBoard</Link>
           </li>
           <li className="login">
             <Link to="/login">Login</Link>

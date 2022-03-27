@@ -94,7 +94,7 @@ export function CreateNewOrderProvider({ children }: CreateNewOrderProps) {
       total: 20,
     };
     console.log(data);
-    api.post("/dashboardOrders", { data });
+    api.post("/dashboardOrders", { ...data, data });
   }
   return (
     <CreateNewOrderContext.Provider

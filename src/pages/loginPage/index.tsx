@@ -24,7 +24,7 @@ export function LoginPage() {
             <p>Password</p>
             <input type="password" placeholder="******" />
             <Link to="/dashboard">
-              <button type="submit">Ir ao DashBoard</button>
+              <button onClick={(e) => {}}>Ir ao DashBoard</button>
             </Link>
           </FormData>
         </FormContainer>
