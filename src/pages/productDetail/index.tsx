@@ -40,12 +40,6 @@ export function ProductDetail() {
 
             <ButtonsOrderDetailProduct>
               <button onClick={handleOpenModal}>Order</button>
-              <button className="quantityButton">
-                <FaMinus />
-              </button>
-              <button className="quantityButton">
-                <FaPlus />
-              </button>
             </ButtonsOrderDetailProduct>
           </ContentArea>
           <div>
